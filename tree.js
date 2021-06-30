@@ -1,3 +1,43 @@
+const node1bulkresult = [
+    {
+        collapsed: true,
+        text: {
+            name: "Use Snyk IDE plug-in if supported! Otherwise, use CLI and export a SARIF, then use it with a SARIF viewer extension in the IDE"
+        }
+    },
+    {
+        collapsed: true,
+        text: {
+            name: "Supported IDEs are",
+        },
+        children: [
+            {
+                collapsed: false,
+                text: {name: "Jetbrains (IntelliJ, WebStorm, Pycharm, Android studio, etc): Snyk Open Source and Snyk Code"},
+            },
+            {
+                collapsed: false,
+                text: {name: "Visual Studio Code: Code only (there is a “community” barebones option for Snyk Open Source called Snyk VulnCost)"},
+            },
+            {
+                collapsed: false,
+                text: {name: "Eclipse: Snyk Open Source only"},
+            },
+            {
+                collapsed: false,
+                text: {name: "Visual Studio (full): Snyk Open Source only"},
+            },
+        ],
+    },
+    {
+        collapsed: true,
+        text: {
+            name: "Also, PR Checks via Git integration may help as they provide visibility for Snyk Open Source and Snyk Code prior to the code being merged",
+        },
+    },
+]
+
+
 var chart_config = {
     chart: {
         container: "#collapsable-example",
@@ -33,24 +73,37 @@ var chart_config = {
                 },
                 children: [
                     {
+                        collapsed: true,
                         text: {
                             name: "Pick secure open source packages so I don’t have to redo a bunch of work",
-                        }
+                        },
+                        children: [
+                            {
+                                link: {href: "https://snyk.io/advisor"},
+                                text: {name: "Check out https://snyk.io/advisor!"}
+                            }
+                        ]
                     },
                     {
                         text: {
                             name: "Reduce pressure/schooling received from security or legal",
-                        }
+                        },
+                        collapsed: true,
+                        children: node1bulkresult,
                     },
                     {
                         text: {
                             name: "Catch issues early and fix them before they become a part of the codebase",
-                        }
+                        },
+                        collapsed: true,
+                        children: node1bulkresult,
                     },
                     {
                         text: {
                             name: "Ensure that code commit will pass through the security gate the first time",
-                        }
+                        },
+                        collapsed: true,
+                        children: node1bulkresult,
                     },
                 ]
             },
